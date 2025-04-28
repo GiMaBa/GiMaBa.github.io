@@ -22,18 +22,37 @@
       color: white;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
       text-align: center;
+      padding: 0 1rem;
     }
     header h1 {
       font-size: 3rem;
       margin: 0;
     }
+    header p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-style: italic;
+    }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background-color: #1e3a5f;
+      margin: 4rem auto 2rem;
+    }
     .gallery {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      padding: 4rem 2rem;
+      padding: 2rem;
       max-width: 1200px;
       margin: auto;
+    }
+    .gallery.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .gallery-item {
       overflow: hidden;
@@ -64,15 +83,19 @@
       background: #1e3a5f;
       color: white;
       margin-top: 4rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Discover timeless spaces.</h1>
+    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – persönlich und weltweit.</p>
   </header>
 
-  <section class="gallery">
+  <div class="divider"></div>
+
+  <section class="gallery" id="gallery">
     <a class="gallery-item" href="detail-1.html">
       <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
       <h3>Modern Villa in Munich</h3>
@@ -106,5 +129,17 @@
   <footer>
     © 2025 GMB-Immobilien
   </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var gallery = document.getElementById('gallery');
+      var position = gallery.getBoundingClientRect().top;
+      var screenPosition = window.innerHeight / 1.2;
+
+      if(position < screenPosition) {
+        gallery.classList.add('visible');
+      }
+    });
+  </script>
 </body>
 </html>
