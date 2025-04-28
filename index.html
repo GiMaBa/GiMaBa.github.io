@@ -1,6 +1,110 @@
 <!DOCTYPE html>
 <html lang="de">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GMB-Immobilien | Startseite</title></head><body>
-<header><h1>Discover timeless spaces.</h1><a href="gallery.html">View Collection</a></header>
-<footer>© 2025 GMB-Immobilien</footer></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMB-Immobilien | Startseite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background: #fff;
+      color: #111;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      background: #fff;
+      text-decoration: none;
+      color: #111;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item h3 {
+      padding: 1rem;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e3a5f;
+      color: white;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Discover timeless spaces.</h1>
+  </header>
+
+  <section class="gallery">
+    <a class="gallery-item" href="detail-1.html">
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
+      <h3>Modern Villa in Munich</h3>
+    </a>
+    <a class="gallery-item" href="detail-2.html">
+      <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contemporary Loft in Frankfurt">
+      <h3>Contemporary Loft in Frankfurt</h3>
+    </a>
+    <a class="gallery-item" href="detail-3.html">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Historic Townhouse in Weimar">
+      <h3>Historic Townhouse in Weimar</h3>
+    </a>
+    <a class="gallery-item" href="detail-4.html">
+      <img src="https://images.unsplash.com/photo-1600585152185-99b6b4eb0d99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minimalist Penthouse">
+      <h3>Minimalist Penthouse near Opernturm</h3>
+    </a>
+    <a class="gallery-item" href="detail-5.html">
+      <img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elegant Garden Residence">
+      <h3>Elegant Garden Residence in Munich</h3>
+    </a>
+    <a class="gallery-item" href="detail-6.html">
+      <img src="https://images.unsplash.com/photo-1592595896551-12f5e6908eb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artistic Apartment in Weimar">
+      <h3>Artistic Apartment in Weimar Altstadt</h3>
+    </a>
+    <a class="gallery-item" href="detail-7.html">
+      <img src="https://images.unsplash.com/photo-1600585153406-ec3b96856f4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skyline View Apartment">
+      <h3>Skyline View Apartment Frankfurt</h3>
+    </a>
+  </section>
+
+  <footer>
+    © 2025 GMB-Immobilien
+  </footer>
+</body>
+</html>
