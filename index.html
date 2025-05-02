@@ -212,60 +212,51 @@
     }
 
     function switchLanguage() {
-  const lang = document.getElementById('language-select').value;
-  const title = document.getElementById('hero-title');
-  const sub = document.getElementById('hero-sub');
+      const lang = document.getElementById('language-select').value;
+      const title = document.getElementById('hero-title');
+      const sub = document.getElementById('hero-sub');
 
-  const navAbout = document.getElementById('nav-about');
-  const navProperties = document.getElementById('nav-properties');
-  const navImprint = document.getElementById('nav-imprint');
-  const navContact = document.getElementById('nav-contact');
+      const navAbout = document.getElementById('nav-about');
+      const navProperties = document.getElementById('nav-properties');
+      const navImprint = document.getElementById('nav-imprint');
+      const navContact = document.getElementById('nav-contact');
 
-  const content = {
-    de: [
-      'Discover timeless spaces.',
-      'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.',
-      'Über uns', 'Immobilien', 'Impressum', 'Kontakt'
-    ],
-    en: [
-      'Discover timeless spaces.',
-      'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.',
-      'About', 'Properties', 'Imprint', 'Contact'
-    ],
-    it: [
-      'Spazi senza tempo.',
-      'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.',
-      'Chi siamo', 'Immobili', 'Impressum', 'Contatto'
-    ],
-    ru: [
-      'Пространства вне времени.',
-      'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.',
-      'О нас', 'Недвижимость', 'Импрессум', 'Контакт'
-    ]
-  };
+      const content = {
+        de: [
+          'Entdecken Sie zeitlose Räume.',
+          'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.',
+          'Über uns', 'Immobilien', 'Impressum', 'Kontakt'
+        ],
+        en: [
+          'Discover timeless spaces.',
+          'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.',
+          'About', 'Properties', 'Imprint', 'Contact'
+        ],
+        it: [
+          'Spazi senza tempo.',
+          'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.',
+          'Chi siamo', 'Immobili', 'Impressum', 'Contatto'
+        ],
+        ru: [
+          'Пространства вне времени.',
+          'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.',
+          'О нас', 'Недвижимость', 'Импрессум', 'Контакт'
+        ]
+      };
 
-  if(content[lang]) {
-    title.textContent = content[lang][0];
-    sub.textContent = content[lang][1];
-    navAbout.textContent = content[lang][2];
-    navProperties.textContent = content[lang][3];
-    navImprint.textContent = content[lang][4];
-    navContact.textContent = content[lang][5];
-
-    document.querySelectorAll('.gallery-item h3').forEach(el => {
-      const newText = el.getAttribute(`data-${lang}`);
-      if (newText) el.textContent = newText;
-    });
-  }
-};
-
-      if(content[lang]) {
+      if (content[lang]) {
         title.textContent = content[lang][0];
         sub.textContent = content[lang][1];
         navAbout.textContent = content[lang][2];
         navProperties.textContent = content[lang][3];
         navImprint.textContent = content[lang][4];
         navContact.textContent = content[lang][5];
+
+        // Update gallery item titles
+        document.querySelectorAll('.gallery-item h3').forEach(el => {
+          const newText = el.getAttribute(`data-${lang}`);
+          if (newText) el.textContent = newText;
+        });
       }
     }
   </script>
