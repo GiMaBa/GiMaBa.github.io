@@ -31,8 +31,13 @@
       float: right;
       margin-right: 2rem;
     }
-    nav select {
-      margin-left: 1rem;
+    nav .lang select {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #1e3a5f;
     }
     header {
       background: url('https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
@@ -126,14 +131,19 @@
     <a href="#impressum">Impressum</a>
     <a href="#kontakt">Kontakt</a>
     <span class="lang">
-      Sprache:
-      <a href="#">DE</a> | <a href="#">EN</a> | <a href="#">IT</a> | <a href="#">RU</a>
+      <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
+      <select id="language-select">
+        <option value="de" selected>DE</option>
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="ru">RU</option>
+      </select>
     </span>
   </nav>
 
   <header>
     <h1>Discover timeless spaces.</h1>
-    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – persönlich und weltweit.</p>
+    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.</p>
   </header>
 
   <div class="divider"></div>
