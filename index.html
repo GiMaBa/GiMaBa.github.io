@@ -126,10 +126,10 @@
 </head>
 <body>
   <nav>
-    <a href="#about">Über uns</a>
-    <a href="#gallery">Immobilien</a>
-    <a href="#impressum">Impressum</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="#about" id="nav-about">Über uns</a>
+    <a href="#gallery" id="nav-properties">Immobilien</a>
+    <a href="#impressum" id="nav-imprint">Impressum</a>
+    <a href="#kontakt" id="nav-contact">Kontakt</a>
     <span class="lang">
       <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
       <select id="language-select" onchange="switchLanguage()">
@@ -159,7 +159,34 @@
   </div>
 
   <section class="gallery" id="gallery">
-    <!-- Galerie-Elemente bleiben unverändert -->
+    <a class="gallery-item muenchen" href="#">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
+      <h3 data-de="Moderne Villa in München" data-en="Modern Villa in Munich" data-it="Villa moderna a Monaco" data-ru="Современная вилла в Мюнхене">Moderne Villa in München</h3>
+    </a>
+    <a class="gallery-item frankfurt" href="#">
+      <img src="https://images.unsplash.com/photo-1617104614713-1983a1d2f086?auto=format&fit=crop&w=800&q=80" alt="Contemporary Loft in Frankfurt">
+      <h3 data-de="Zeitgemäßes Loft in Frankfurt" data-en="Contemporary Loft in Frankfurt" data-it="Loft contemporaneo a Francoforte" data-ru="Современный лофт во Франкфурте">Zeitgemäßes Loft in Frankfurt</h3>
+    </a>
+    <a class="gallery-item weimar" href="#">
+      <img src="https://images.unsplash.com/photo-1582582421437-1d45a2a27f7f?auto=format&fit=crop&w=800&q=80" alt="Historic Townhouse in Weimar">
+      <h3 data-de="Historisches Stadthaus in Weimar" data-en="Historic Townhouse in Weimar" data-it="Casa storica a Weimar" data-ru="Исторический дом в Веймаре">Historisches Stadthaus in Weimar</h3>
+    </a>
+    <a class="gallery-item frankfurt" href="#">
+      <img src="https://images.unsplash.com/photo-1597007510541-f07b7299ac1a?auto=format&fit=crop&w=800&q=80" alt="Minimalist Penthouse">
+      <h3 data-de="Minimalistisches Penthouse" data-en="Minimalist Penthouse" data-it="Attico minimalista" data-ru="Минималистичный пентхаус">Minimalistisches Penthouse</h3>
+    </a>
+    <a class="gallery-item muenchen" href="#">
+      <img src="https://images.unsplash.com/photo-1599423300746-16ab39c8f0ff?auto=format&fit=crop&w=800&q=80" alt="Elegant Garden Residence">
+      <h3 data-de="Elegante Gartenresidenz" data-en="Elegant Garden Residence" data-it="Residenza con giardino elegante" data-ru="Элегантная усадьба с садом">Elegante Gartenresidenz</h3>
+    </a>
+    <a class="gallery-item weimar" href="#">
+      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Artistic Apartment in Weimar">
+      <h3 data-de="Künstlerisches Apartment in Weimar" data-en="Artistic Apartment in Weimar" data-it="Appartamento artistico a Weimar" data-ru="Артистичная квартира в Веймаре">Künstlerisches Apartment in Weimar</h3>
+    </a>
+    <a class="gallery-item frankfurt" href="#">
+      <img src="https://images.unsplash.com/photo-1599423300746-d14e7bdf6e9a?auto=format&fit=crop&w=800&q=80" alt="Skyline View Apartment">
+      <h3 data-de="Apartment mit Skyline-Blick" data-en="Skyline View Apartment" data-it="Appartamento con vista skyline" data-ru="Квартира с видом на город">Apartment mit Skyline-Blick</h3>
+    </a>
   </section>
 
   <footer>
@@ -185,30 +212,60 @@
     }
 
     function switchLanguage() {
-      const lang = document.getElementById('language-select').value;
-      const title = document.getElementById('hero-title');
-      const sub = document.getElementById('hero-sub');
-      const content = {
-        de: [
-          'Discover timeless spaces.',
-          'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.'
-        ],
-        en: [
-          'Discover timeless spaces.',
-          'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.'
-        ],
-        it: [
-          'Spazi senza tempo.',
-          'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.'
-        ],
-        ru: [
-          'Пространства вне времени.',
-          'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.'
-        ]
-      };
+  const lang = document.getElementById('language-select').value;
+  const title = document.getElementById('hero-title');
+  const sub = document.getElementById('hero-sub');
+
+  const navAbout = document.getElementById('nav-about');
+  const navProperties = document.getElementById('nav-properties');
+  const navImprint = document.getElementById('nav-imprint');
+  const navContact = document.getElementById('nav-contact');
+
+  const content = {
+    de: [
+      'Discover timeless spaces.',
+      'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.',
+      'Über uns', 'Immobilien', 'Impressum', 'Kontakt'
+    ],
+    en: [
+      'Discover timeless spaces.',
+      'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.',
+      'About', 'Properties', 'Imprint', 'Contact'
+    ],
+    it: [
+      'Spazi senza tempo.',
+      'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.',
+      'Chi siamo', 'Immobili', 'Impressum', 'Contatto'
+    ],
+    ru: [
+      'Пространства вне времени.',
+      'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.',
+      'О нас', 'Недвижимость', 'Импрессум', 'Контакт'
+    ]
+  };
+
+  if(content[lang]) {
+    title.textContent = content[lang][0];
+    sub.textContent = content[lang][1];
+    navAbout.textContent = content[lang][2];
+    navProperties.textContent = content[lang][3];
+    navImprint.textContent = content[lang][4];
+    navContact.textContent = content[lang][5];
+
+    document.querySelectorAll('.gallery-item h3').forEach(el => {
+      const newText = el.getAttribute(`data-${lang}`);
+      if (newText) el.textContent = newText;
+    });
+  }
+};
+
       if(content[lang]) {
         title.textContent = content[lang][0];
         sub.textContent = content[lang][1];
+        navAbout.textContent = content[lang][2];
+        navProperties.textContent = content[lang][3];
+        navImprint.textContent = content[lang][4];
+        navContact.textContent = content[lang][5];
       }
     }
   </script>
