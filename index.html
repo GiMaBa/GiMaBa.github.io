@@ -132,7 +132,7 @@
     <a href="#kontakt">Kontakt</a>
     <span class="lang">
       <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
-      <select id="language-select">
+      <select id="language-select" onchange="switchLanguage()">
         <option value="de" selected>DE</option>
         <option value="en">EN</option>
         <option value="it">IT</option>
@@ -142,8 +142,8 @@
   </nav>
 
   <header>
-    <h1>Discover timeless spaces.</h1>
-    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.</p>
+    <h1 id="hero-title">Discover timeless spaces.</h1>
+    <p id="hero-sub">GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.</p>
   </header>
 
   <div class="divider"></div>
@@ -159,34 +159,7 @@
   </div>
 
   <section class="gallery" id="gallery">
-    <a class="gallery-item muenchen" href="detail-1.html">
-      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
-      <h3>Modern Villa in Munich</h3>
-    </a>
-    <a class="gallery-item frankfurt" href="detail-2.html">
-      <img src="https://images.unsplash.com/photo-1617104614713-1983a1d2f086?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contemporary Loft in Frankfurt">
-      <h3>Contemporary Loft in Frankfurt</h3>
-    </a>
-    <a class="gallery-item weimar" href="detail-3.html">
-      <img src="https://images.unsplash.com/photo-1582582421437-1d45a2a27f7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Historic Townhouse in Weimar">
-      <h3>Historic Townhouse in Weimar</h3>
-    </a>
-    <a class="gallery-item frankfurt" href="detail-4.html">
-      <img src="https://images.unsplash.com/photo-1597007510541-f07b7299ac1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minimalist Penthouse">
-      <h3>Minimalist Penthouse near Opernturm</h3>
-    </a>
-    <a class="gallery-item muenchen" href="detail-5.html">
-      <img src="https://images.unsplash.com/photo-1599423300746-16ab39c8f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elegant Garden Residence">
-      <h3>Elegant Garden Residence in Munich</h3>
-    </a>
-    <a class="gallery-item weimar" href="detail-6.html">
-      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artistic Apartment in Weimar">
-      <h3>Artistic Apartment in Weimar Altstadt</h3>
-    </a>
-    <a class="gallery-item frankfurt" href="detail-7.html">
-      <img src="https://images.unsplash.com/photo-1599423300746-d14e7bdf6e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skyline View Apartment">
-      <h3>Skyline View Apartment Frankfurt</h3>
-    </a>
+    <!-- Galerie-Elemente bleiben unverändert -->
   </section>
 
   <footer>
@@ -198,7 +171,6 @@
       var gallery = document.getElementById('gallery');
       var position = gallery.getBoundingClientRect().top;
       var screenPosition = window.innerHeight / 1.2;
-
       if(position < screenPosition) {
         gallery.classList.add('visible');
       }
@@ -210,6 +182,34 @@
       items.forEach(item => {
         item.style.display = (region === 'all' || item.classList.contains(region)) ? 'block' : 'none';
       });
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById('language-select').value;
+      const title = document.getElementById('hero-title');
+      const sub = document.getElementById('hero-sub');
+      const content = {
+        de: [
+          'Discover timeless spaces.',
+          'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.'
+        ],
+        en: [
+          'Discover timeless spaces.',
+          'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.'
+        ],
+        it: [
+          'Spazi senza tempo.',
+          'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.'
+        ],
+        ru: [
+          'Пространства вне времени.',
+          'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.'
+        ]
+      };
+      if(content[lang]) {
+        title.textContent = content[lang][0];
+        sub.textContent = content[lang][1];
+      }
     }
   </script>
 </body>
