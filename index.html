@@ -12,6 +12,28 @@
       background: #fff;
       color: #111;
     }
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #1e3a5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .lang {
+      float: right;
+      margin-right: 2rem;
+    }
+    nav select {
+      margin-left: 1rem;
+    }
     header {
       background: url('https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
       height: 100vh;
@@ -39,6 +61,16 @@
       background-color: #1e3a5f;
       margin: 4rem auto 2rem;
     }
+    .region-filter {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .region-filter select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
     .gallery {
       opacity: 0;
       transform: translateY(50px);
@@ -58,19 +90,19 @@
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
       background: #fff;
       text-decoration: none;
       color: #111;
-    }
-    .gallery-item:hover {
-      transform: translateY(-5px);
     }
     .gallery-item img {
       width: 100%;
       height: 220px;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
     }
     .gallery-item h3 {
       padding: 1rem;
@@ -88,40 +120,61 @@
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#about">Über uns</a>
+    <a href="#gallery">Immobilien</a>
+    <a href="#impressum">Impressum</a>
+    <a href="#kontakt">Kontakt</a>
+    <span class="lang">
+      Sprache:
+      <a href="#">DE</a> | <a href="#">EN</a> | <a href="#">IT</a> | <a href="#">RU</a>
+    </span>
+  </nav>
+
   <header>
     <h1>Discover timeless spaces.</h1>
-    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt Weimar.</p>
+    <p>GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – persönlich und weltweit.</p>
   </header>
 
   <div class="divider"></div>
 
+  <div class="region-filter">
+    <label for="region">Region wählen:</label>
+    <select id="region" onchange="filterRegion()">
+      <option value="all">Alle</option>
+      <option value="frankfurt">Frankfurt</option>
+      <option value="muenchen">München</option>
+      <option value="weimar">Weimar</option>
+    </select>
+  </div>
+
   <section class="gallery" id="gallery">
-    <a class="gallery-item" href="detail-1.html">
-      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
+    <a class="gallery-item muenchen" href="detail-1.html">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Villa in Munich">
       <h3>Modern Villa in Munich</h3>
     </a>
-    <a class="gallery-item" href="detail-2.html">
-      <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contemporary Loft in Frankfurt">
+    <a class="gallery-item frankfurt" href="detail-2.html">
+      <img src="https://images.unsplash.com/photo-1617104614713-1983a1d2f086?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Contemporary Loft in Frankfurt">
       <h3>Contemporary Loft in Frankfurt</h3>
     </a>
-    <a class="gallery-item" href="detail-3.html">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Historic Townhouse in Weimar">
+    <a class="gallery-item weimar" href="detail-3.html">
+      <img src="https://images.unsplash.com/photo-1582582421437-1d45a2a27f7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Historic Townhouse in Weimar">
       <h3>Historic Townhouse in Weimar</h3>
     </a>
-    <a class="gallery-item" href="detail-4.html">
-      <img src="https://images.unsplash.com/photo-1600585152185-99b6b4eb0d99?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minimalist Penthouse">
+    <a class="gallery-item frankfurt" href="detail-4.html">
+      <img src="https://images.unsplash.com/photo-1597007510541-f07b7299ac1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Minimalist Penthouse">
       <h3>Minimalist Penthouse near Opernturm</h3>
     </a>
-    <a class="gallery-item" href="detail-5.html">
-      <img src="https://images.unsplash.com/photo-1586105251261-72a756497a12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elegant Garden Residence">
+    <a class="gallery-item muenchen" href="detail-5.html">
+      <img src="https://images.unsplash.com/photo-1599423300746-16ab39c8f0ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elegant Garden Residence">
       <h3>Elegant Garden Residence in Munich</h3>
     </a>
-    <a class="gallery-item" href="detail-6.html">
-      <img src="https://images.unsplash.com/photo-1592595896551-12f5e6908eb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artistic Apartment in Weimar">
+    <a class="gallery-item weimar" href="detail-6.html">
+      <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artistic Apartment in Weimar">
       <h3>Artistic Apartment in Weimar Altstadt</h3>
     </a>
-    <a class="gallery-item" href="detail-7.html">
-      <img src="https://images.unsplash.com/photo-1600585153406-ec3b96856f4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skyline View Apartment">
+    <a class="gallery-item frankfurt" href="detail-7.html">
+      <img src="https://images.unsplash.com/photo-1599423300746-d14e7bdf6e9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Skyline View Apartment">
       <h3>Skyline View Apartment Frankfurt</h3>
     </a>
   </section>
@@ -140,6 +193,14 @@
         gallery.classList.add('visible');
       }
     });
+
+    function filterRegion() {
+      const region = document.getElementById('region').value;
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        item.style.display = (region === 'all' || item.classList.contains(region)) ? 'block' : 'none';
+      });
+    }
   </script>
 </body>
 </html>
