@@ -190,52 +190,66 @@
       });
     }
 
-    function switchLanguage() {
-      const lang = document.getElementById('language-select').value;
-      const title = document.getElementById('hero-title');
-      const sub = document.getElementById('hero-sub');
+    // Save selected language in URL
+    document.getElementById('language-select').addEventListener('change', function() {
+      const selectedLang = this.value;
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('lang', selectedLang);
+      window.location.href = currentUrl.toString();
+    });
 
-      const navAbout = document.getElementById('nav-about');
-      const navProperties = document.getElementById('nav-properties');
-      const navImprint = document.getElementById('nav-imprint');
-      const navContact = document.getElementById('nav-contact');
+    // Apply language on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'de'; // Default to German
+      document.getElementById('language-select').value = lang;
+      switchLanguage(lang);
+    });
 
+    function switchLanguage(lang) {
       const content = {
-        de: [
-          'Entdecken Sie zeitlose Räume.',
-          'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.',
-          'Über uns', 'Immobilien', 'Impressum', 'Kontakt'
-        ],
-        en: [
-          'Discover timeless spaces.',
-          'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.',
-          'About', 'Properties', 'Imprint', 'Contact'
-        ],
-        it: [
-          'Spazi senza tempo.',
-          'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.',
-          'Chi siamo', 'Immobili', 'Impressum', 'Contatto'
-        ],
-        ru: [
-          'Пространства вне времени.',
-          'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.',
-          'О нас', 'Недвижимость', 'Импрессум', 'Контакт'
-        ]
+        de: {
+          title: 'Entdecken Sie zeitlose Räume.',
+          sub: 'GMB-Immobilien begleitet Sie auf Deutsch, Englisch, Italienisch und Russisch – Ihr Immobilienpartner für München, Frankfurt, Weimar.',
+          about: 'Über uns',
+          properties: 'Immobilien',
+          imprint: 'Impressum',
+          contact: 'Kontakt'
+        },
+        en: {
+          title: 'Discover timeless spaces.',
+          sub: 'GMB Real Estate speaks German, English, Italian and Russian – your partner for Munich, Frankfurt, Weimar.',
+          about: 'About',
+          properties: 'Properties',
+          imprint: 'Imprint',
+          contact: 'Contact'
+        },
+        it: {
+          title: 'Spazi senza tempo.',
+          sub: 'GMB-Immobilien parla tedesco, inglese, italiano e russo – il tuo partner per Monaco, Francoforte, Weimar.',
+          about: 'Chi siamo',
+          properties: 'Immobili',
+          imprint: 'Impressum',
+          contact: 'Contatto'
+        },
+        ru: {
+          title: 'Пространства вне времени.',
+          sub: 'GMB-Immobilien говорит на немецком, английском, итальянском и русском – ваш партнёр по недвижимости в Мюнхене, Франкфурте и Веймаре.',
+          about: 'О нас',
+          properties: 'Недвижимость',
+          imprint: 'Импрессум',
+          contact: 'Контакт'
+        }
       };
 
-      if (content[lang]) {
-        title.textContent = content[lang][0];
-        sub.textContent = content[lang][1];
-        navAbout.textContent = content[lang][2];
-        navProperties.textContent = content[lang][3];
-        navImprint.textContent = content[lang][4];
-        navContact.textContent = content[lang][5];
-
-        // Update gallery item titles
-        document.querySelectorAll('.gallery-item h3').forEach(el => {
-          const newText = el.getAttribute(`data-${lang}`);
-          if (newText) el.textContent = newText;
-        });
+      const elements = content[lang];
+      if (elements) {
+        document.getElementById('hero-title').textContent = elements.title;
+        document.getElementById('hero-sub').textContent = elements.sub;
+        document.getElementById('nav-about').textContent = elements.about;
+        document.getElementById('nav-properties').textContent = elements.properties;
+        document.getElementById('nav-imprint').textContent = elements.imprint;
+        document.getElementById('nav-contact').textContent = elements.contact;
       }
     }
   </script>

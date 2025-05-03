@@ -186,6 +186,66 @@
         lightbox.classList.remove('active');
       });
     });
+
+    // Apply language on page load
+    window.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'de'; // Default to German
+      document.getElementById('language-select').value = lang;
+      switchLanguage(lang);
+    });
+
+    function switchLanguage(lang) {
+      const content = {
+        de: {
+          title: 'Skyline Suite',
+          description: 'Erleben Sie die Skyline in ihrer vollen Pracht.',
+          backToGallery: 'Zurück zur Galerie',
+          about: 'Über uns',
+          properties: 'Immobilien',
+          imprint: 'Impressum',
+          contact: 'Kontakt'
+        },
+        en: {
+          title: 'Skyline Suite',
+          description: 'Experience the skyline in its full glory.',
+          backToGallery: 'Back to Gallery',
+          about: 'About',
+          properties: 'Properties',
+          imprint: 'Imprint',
+          contact: 'Contact'
+        },
+        it: {
+          title: 'Suite Skyline',
+          description: 'Vivi lo skyline in tutto il suo splendore.',
+          backToGallery: 'Torna alla galleria',
+          about: 'Chi siamo',
+          properties: 'Immobili',
+          imprint: 'Impressum',
+          contact: 'Contatto'
+        },
+        ru: {
+          title: 'Скайлайн Сьют',
+          description: 'Насладитесь видом на небоскребы во всей их красе.',
+          backToGallery: 'Назад к галерее',
+          about: 'О нас',
+          properties: 'Недвижимость',
+          imprint: 'Импрессум',
+          contact: 'Контакт'
+        }
+      };
+
+      const elements = content[lang];
+      if (elements) {
+        document.querySelector('header h1').textContent = elements.title;
+        document.querySelector('header p').textContent = elements.description;
+        document.getElementById('back-to-gallery').textContent = elements.backToGallery;
+        document.getElementById('nav-about').textContent = elements.about;
+        document.getElementById('nav-properties').textContent = elements.properties;
+        document.getElementById('nav-imprint').textContent = elements.imprint;
+        document.getElementById('nav-contact').textContent = elements.contact;
+      }
+    }
   </script>
 </body>
 </html>
