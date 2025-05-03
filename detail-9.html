@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background: #fff;
+      color: #111;
+    }
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #1e3a5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav .lang {
+      float: right;
+      margin-right: 2rem;
+    }
+    nav .lang select {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #1e3a5f;
+    }
+    header {
+      background: url('images/skyline/File 00001.png') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-style: italic;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background: #fff;
+      text-decoration: none;
+      color: #111;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e3a5f;
+      color: white;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .lightbox:target {
+      display: flex;
+    }
+    .lightbox:target img {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
+    <a href="index.html#gallery" id="nav-properties">Immobilien</a>
+    <a href="#impressum" id="nav-imprint">Impressum</a>
+    <a href="#kontakt" id="nav-contact">Kontakt</a>
+  </nav>
+
+  <header>
+    <h1>Skyline Suite</h1>
+    <p>Erleben Sie die Skyline in ihrer vollen Pracht.</p>
+  </header>
+
+  <section class="gallery">
+    <a class="gallery-item" href="#lightbox-1">
+      <img src="images/skyline/File 00001.png" alt="Skyline Suite 2">
+    </a>
+    <a class="gallery-item" href="#lightbox-2">
+      <img src="images/skyline/File 00002.png" alt="Zusätzliches Bild 1">
+    </a>
+    <a class="gallery-item" href="#lightbox-3">
+      <img src="images/skyline/File 00003.png" alt="Zusätzliches Bild 2">
+    </a>
+    <a class="gallery-item" href="#lightbox-4">
+      <img src="images/skyline/File 00004.png" alt="Zusätzliches Bild 3">
+    </a>
+    <a class="gallery-item" href="#lightbox-5">
+      <img src="images/skyline/File 00005.png" alt="Zusätzliches Bild 4">
+    </a>
+  </section>
+
+  <!-- Lightbox elements -->
+  <div id="lightbox-1" class="lightbox" onclick="location.href='#'">
+    <img src="images/skyline/File 00001.png" alt="Skyline Suite 2">
+  </div>
+  <div id="lightbox-2" class="lightbox" onclick="location.href='#'">
+    <img src="images/skyline/File 00002.png" alt="Zusätzliches Bild 1">
+  </div>
+  <div id="lightbox-3" class="lightbox" onclick="location.href='#'">
+    <img src="images/skyline/File 00003.png" alt="Zusätzliches Bild 2">
+  </div>
+  <div id="lightbox-4" class="lightbox" onclick="location.href='#'">
+    <img src="images/skyline/File 00004.png" alt="Zusätzliches Bild 3">
+  </div>
+  <div id="lightbox-5" class="lightbox" onclick="location.href='#'"></div>
+    <img src="images/skyline/File 00005.png" alt="Zusätzliches Bild 4">
+  </div>
+
+  <footer>
+    © 2025 GMB-Immobilien
+  </footer>
+</body>
+</html>

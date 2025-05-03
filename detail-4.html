@@ -1,24 +1,57 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="UTF-8"><title>Objekt 4</title></head><body>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Urbanes Loft Frankfurt</title>
+</head>
+<body>
 <nav>
-  <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
-</nav>
-<header><h1>Objekt 4</h1></header>
-<section>
-  <img src="images/breathtakingpictureofaart_26005148.png" alt="Urban Loft Frankfurt">
-  <p>Details zur Immobilie 4.</p>
-</section>
-<section>
-  <h2>Weitere Bilder</h2>
-  <div class="gallery">
+    <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
+    <a href="#about" id="nav-about">Über uns</a>
+    <a href="#gallery" id="nav-properties">Immobilien</a>
+    <a href="#impressum" id="nav-imprint">Impressum</a>
+    <a href="#kontakt" id="nav-contact">Kontakt</a>
+    <span class="lang">
+      <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
+      <select id="language-select" onchange="switchLanguage()">
+        <option value="de" selected>DE</option>
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="ru">RU</option>
+      </select>
+    </span>
+  </nav>
+<header>
+  <h1>Urbanes Loft Frankfurt</h1>
+</header>
+<section class="gallery">
+  <a class="gallery-item" href="images/breathtakingpictureofaart_26005148.png" target="_blank">
+    <img src="images/breathtakingpictureofaart_26005148.png" alt="Urban Loft Frankfurt">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_50264098.png" target="_blank">
     <img src="images/breathtakingpictureofaart_50264098.png" alt="Zusätzliches Bild 1">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_5707556.png" target="_blank">
     <img src="images/breathtakingpictureofaart_5707556.png" alt="Zusätzliches Bild 2">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_67857612.png" target="_blank">
     <img src="images/breathtakingpictureofaart_67857612.png" alt="Zusätzliches Bild 3">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_7365918.png" target="_blank">
     <img src="images/breathtakingpictureofaart_7365918.png" alt="Zusätzliches Bild 4">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_74554782.png" target="_blank">
     <img src="images/breathtakingpictureofaart_74554782.png" alt="Zusätzliches Bild 5">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_75612196.png" target="_blank">
     <img src="images/breathtakingpictureofaart_75612196.png" alt="Zusätzliches Bild 6">
-    <img src="images/breathtakingpictureofaart_26005148.png" alt="Zusätzliches Bild 7">
-    <img src="images/breathtakingpictureofaart_44730813.png" alt="Zusätzliches Bild 8">
-  </div>
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaart_44730813.png" target="_blank">
+    <img src="images/breathtakingpictureofaart_44730813.png" alt="Zusätzliches Bild 7">
+  </a>
 </section>
-<footer>© 2025 GMB-Immobilien</footer></body></html>
+<footer>
+  © 2025 GMB-Immobilien
+</footer>
+</body>
+</html>

@@ -1,24 +1,57 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="UTF-8"><title>Objekt 3</title></head><body>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Klassische Villa Weimar</title>
+</head>
+<body>
 <nav>
-  <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
-</nav>
-<header><h1>Objekt 3</h1></header>
-<section>
-  <img src="images/breathtakingpictureofaclas_20598269.png" alt="Classic Villa Weimar">
-  <p>Details zur Immobilie 3.</p>
-</section>
-<section>
-  <h2>Weitere Bilder</h2>
-  <div class="gallery">
+    <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
+    <a href="#about" id="nav-about">Über uns</a>
+    <a href="#gallery" id="nav-properties">Immobilien</a>
+    <a href="#impressum" id="nav-imprint">Impressum</a>
+    <a href="#kontakt" id="nav-contact">Kontakt</a>
+    <span class="lang">
+      <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
+      <select id="language-select" onchange="switchLanguage()">
+        <option value="de" selected>DE</option>
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="ru">RU</option>
+      </select>
+    </span>
+  </nav>
+<header>
+  <h1>Klassische Villa Weimar</h1>
+</header>
+<section class="gallery">
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_20598269.png" target="_blank">
+    <img src="images/breathtakingpictureofaclas_20598269.png" alt="Classic Villa Weimar">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_45481164.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_45481164.png" alt="Zusätzliches Bild 1">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_52379242.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_52379242.png" alt="Zusätzliches Bild 2">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_6150403.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_6150403.png" alt="Zusätzliches Bild 3">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_69426451.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_69426451.png" alt="Zusätzliches Bild 4">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_81542038.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_81542038.png" alt="Zusätzliches Bild 5">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_87097686.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_87097686.png" alt="Zusätzliches Bild 6">
+  </a>
+  <a class="gallery-item" href="images/breathtakingpictureofaclas_87373309.png" target="_blank">
     <img src="images/breathtakingpictureofaclas_87373309.png" alt="Zusätzliches Bild 7">
-    <img src="images/breathtakingpictureofaclas_20598269.png" alt="Zusätzliches Bild 8">
-  </div>
+  </a>
 </section>
-<footer>© 2025 GMB-Immobilien</footer></body></html>
+<footer>
+  © 2025 GMB-Immobilien
+</footer>
+</body>
+</html>
