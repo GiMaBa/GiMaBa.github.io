@@ -11,6 +11,7 @@
       font-family: 'Lora', serif;
       background: #fff;
       color: #111;
+      scroll-behavior: smooth;
     }
     nav {
       background-color: #fff;
@@ -94,7 +95,7 @@
       margin-top: 4rem;
       font-size: 0.9rem;
     }
-    /* Lightbox styles */
+    /* Updated Lightbox styles for modal behavior */
     .lightbox {
       display: none;
       position: fixed;
@@ -112,64 +113,79 @@
       max-height: 90%;
       border-radius: 8px;
     }
-    .lightbox:target {
+    .lightbox.active {
       display: flex;
-    }
-    .lightbox:target img {
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html#gallery" id="back-to-gallery">Zurück zur Galerie</a>
+    <a href="index.html#about" id="nav-about">Über uns</a>
     <a href="index.html#gallery" id="nav-properties">Immobilien</a>
-    <a href="#impressum" id="nav-imprint">Impressum</a>
-    <a href="#kontakt" id="nav-contact">Kontakt</a>
+    <a href="index.html#impressum" id="nav-imprint">Impressum</a>
+    <a href="index.html#kontakt" id="nav-contact">Kontakt</a>
   </nav>
 
   <header>
-    <h1>Skyline Suite</h1>
-    <p>Erleben Sie die Skyline in ihrer vollen Pracht.</p>
+    <h1 data-de="Skyline Suite" data-en="Skyline Suite" data-it="Suite Skyline" data-ru="Скайлайн Сьют">Skyline Suite</h1>
+    <p data-de="Erleben Sie die Skyline in ihrer vollen Pracht." data-en="Experience the skyline in its full glory." data-it="Vivi lo skyline in tutto il suo splendore." data-ru="Насладитесь видом на небоскребы во всей их красе.">Erleben Sie die Skyline in ihrer vollen Pracht.</p>
   </header>
 
   <section class="gallery">
-    <a class="gallery-item" href="#lightbox-1">
-      <img src="images/skyline/File 00001.png" alt="Skyline Suite 2">
+    <a class="gallery-item" href="#">
+      <img src="images/skyline/File 00001.png" alt="Skyline Suite">
     </a>
-    <a class="gallery-item" href="#lightbox-2">
+    <a class="gallery-item" href="#">
       <img src="images/skyline/File 00002.png" alt="Zusätzliches Bild 1">
     </a>
-    <a class="gallery-item" href="#lightbox-3">
+    <a class="gallery-item" href="#">
       <img src="images/skyline/File 00003.png" alt="Zusätzliches Bild 2">
     </a>
-    <a class="gallery-item" href="#lightbox-4">
+    <a class="gallery-item" href="#">
       <img src="images/skyline/File 00004.png" alt="Zusätzliches Bild 3">
     </a>
-    <a class="gallery-item" href="#lightbox-5">
+    <a class="gallery-item" href="#">
       <img src="images/skyline/File 00005.png" alt="Zusätzliches Bild 4">
     </a>
   </section>
 
-  <!-- Lightbox elements -->
-  <div id="lightbox-1" class="lightbox" onclick="location.href='#'">
-    <img src="images/skyline/File 00001.png" alt="Skyline Suite 2">
+  <!-- Updated Lightbox elements -->
+  <div id="lightbox-1" class="lightbox">
+    <img src="images/skyline/File 00001.png" alt="Skyline Suite">
   </div>
-  <div id="lightbox-2" class="lightbox" onclick="location.href='#'">
+  <div id="lightbox-2" class="lightbox">
     <img src="images/skyline/File 00002.png" alt="Zusätzliches Bild 1">
   </div>
-  <div id="lightbox-3" class="lightbox" onclick="location.href='#'">
+  <div id="lightbox-3" class="lightbox">
     <img src="images/skyline/File 00003.png" alt="Zusätzliches Bild 2">
   </div>
-  <div id="lightbox-4" class="lightbox" onclick="location.href='#'">
+  <div id="lightbox-4" class="lightbox">
     <img src="images/skyline/File 00004.png" alt="Zusätzliches Bild 3">
   </div>
-  <div id="lightbox-5" class="lightbox" onclick="location.href='#'"></div>
+  <div id="lightbox-5" class="lightbox">
     <img src="images/skyline/File 00005.png" alt="Zusätzliches Bild 4">
   </div>
 
   <footer>
     © 2025 GMB-Immobilien
   </footer>
+
+  <script>
+    // Updated Lightbox functionality for modal behavior
+    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+      const lightbox = document.getElementById(`lightbox-${index + 1}`);
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        lightbox.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.lightbox').forEach(lightbox => {
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
