@@ -1,5 +1,97 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="UTF-8"><title>Über Uns</title></head><body>
-<header><h1>Über GMB-Immobilien</h1></header>
-<section><p>Wir verbinden Kunst und Architektur zu einzigartigen Lebensräumen.</p></section>
-<footer>© 2025 GMB-Immobilien</footer></body></html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Über uns | Kontakt | Impressum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      background: #fff;
+      color: #111;
+    }
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #1e3a5f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .about img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1e3a5f;
+      color: white;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="#about">Über uns</a>
+    <a href="#contact">Kontakt</a>
+    <a href="#impressum">Impressum</a>
+  </nav>
+
+  <section id="about">
+    <h2>Über uns</h2>
+    <div class="about">
+      <div>
+        <img src="images/art/breathtakingpictureofaart_44730813.png" alt="Placeholder Image 1">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      </div>
+      <div>
+        <img src="images/classic/breathtakingpictureofaclas_20598269.png" alt="Placeholder Image 2">
+        <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+      </div>
+      <div>
+        <img src="images/garden/breathtakingpictureofamode_15812259.png" alt="Placeholder Image 3">
+        <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
+  </section>
+
+  <section id="impressum">
+    <h2>Impressum</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+  </section>
+
+  <footer>
+    © 2025 GMB-Immobilien
+  </footer>
+</body>
+</html>
