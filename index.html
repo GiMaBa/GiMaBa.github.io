@@ -126,8 +126,8 @@
 </head>
 <body>
   <nav>
-    <a href="#about" id="nav-about">Über uns</a>
-    <a href="#gallery" id="nav-properties">Immobilien</a>
+    <a href="about.html#about" id="nav-about">Über uns</a>
+    <a href="#immo" id="nav-properties">Immobilien</a>
     <span class="lang">
       <label for="language-select" style="margin-right: 0.5rem; font-weight: normal;">Sprache:</label>
       <select id="language-select" onchange="switchLanguage()">
@@ -146,17 +146,8 @@
 
   <div class="divider"></div>
 
-  <div class="region-filter">
-    <label for="region">Region wählen:</label>
-    <select id="region" onchange="filterRegion()">
-      <option value="all">Alle</option>
-      <option value="frankfurt">Frankfurt</option>
-      <option value="muenchen">München</option>
-      <option value="weimar">Weimar</option>
-    </select>
-  </div>
-
 </section>
+<section id="immo"></section>
 
 <section class="gallery visible" id="skyline-gallery">
   <a class="gallery-item skyline" href="detail-9.html">
